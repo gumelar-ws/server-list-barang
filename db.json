@@ -1,0 +1,12 @@
+{
+  "listBarang": [
+    {
+      "id": 1,
+      "fotoBarang": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAA",
+      "namaBarang": "ktp",
+      "hargaBeli": 20000,
+      "hargaJual": 40000,
+      "stock": 20
+    }
+  ]
+}
