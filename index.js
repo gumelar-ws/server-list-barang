@@ -5,7 +5,7 @@ const middlewares = jsonServer.defaults();
 const cors = require('cors');
 
 // Daftar origin yang diizinkan
-const allowedOrigins = ['http://localhost:3000/?'];
+const allowedOrigins = ['http://localhost:3000/'];
 
 const corsOptions = {
   origin: function (origin, callback) {
