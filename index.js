@@ -5,24 +5,24 @@ const middlewares = jsonServer.defaults();
 const cors = require('cors');
 
 // Daftar origin yang diizinkan
-// const allowedOrigins = ['http://localhost:3000', 'https://list-barang.netlify.app/'];
+const allowedOrigins = ['http://localhost:3000', 'https://list-barang.netlify.app/'];
 
-// const corsOptions = {
-//   origin: function (origin, callback) {
-//     if (allowedOrigins.includes(origin) || !origin) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Origin tidak diizinkan oleh server'));
-//     }
-//   },
-// };
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Origin tidak diizinkan oleh server'));
+    }
+  },
+};
 
-// server.use(cors(corsOptions));
-server.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
-});
+server.use(cors(corsOptions));
+// server.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+//   next();
+// });
 
 server.use(middlewares);
 server.use('', router);
