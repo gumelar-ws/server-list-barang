@@ -23,9 +23,17 @@ server.use(cors(corsOptions));
 //   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 //   next();
 // });
+server.use(jsonServer.bodyParser);
 
 server.use(middlewares);
 server.use('', router);
+server.use((req, res, next) => {
+  if (req.method === 'POST') {
+    req.body.createdAt = Date.now();
+  }
+  // Continue to JSON Server router
+  next();
+});
 
 server.listen(process.env.PORT || 5000, () => {
   console.log('JSON Server is running');
