@@ -23,9 +23,11 @@ server.use('', router);
 
 // Tambahkan header Access-Control-Allow-Origin secara manual
 server.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', allowedOrigins);
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
+
 server.listen(process.env.PORT || 5000, () => {
   console.log('JSON Server is running');
 });
