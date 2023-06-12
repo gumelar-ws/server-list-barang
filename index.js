@@ -8,10 +8,11 @@ const cors = require('cors');
 const corsOptions = {
   origin: '*', // Atur origin sesuai dengan kebutuhan Anda
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: 'Content-Type,Authorization',
+  allowedHeaders: 'Content-Type',
 };
 
 server.use(cors(corsOptions));
+server.use(express.json());
 server.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
